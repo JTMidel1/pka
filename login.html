@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- auth-login.html  21 Nov 2019 03:49:32 GMT -->
+
+<!-- Mirrored from www.mecapacynthintlacademy.com.ng/login.php by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 06 Dec 2024 12:34:42 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+ <script data-ad-client="ca-pub-3662764724865721" async src="../pagead2.googlesyndication.com/pagead/js/f.txt"></script>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Login Page - SMS</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="assets/css/app.min.css">
+  <link rel="stylesheet" href="assets/bundles/bootstrap-social/bootstrap-social.css">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+  <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+</head>
+
+<body>
+  <div class="loader"></div>
+  <div id="app">
+    <section class="section">
+      <div class="container mt-5">
+        <div class="row">
+                       <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+              <center>
+              <img src="assets/img/logo.jpg" width="85%"></center>
+            <div class="card card-primary">
+              <div class="card-header">
+                <h4>Login - SMS</h4>
+              </div>
+               
+              <div class="card-body">
+                <form method="POST" action="#" class="needs-validation" novalidate="">
+                  <div class="form-group">
+                    <label for="email">Username</label>
+                    <input id="username" type="text" class="form-control" name="username" tabindex="1" required autofocus>
+                    <div class="invalid-feedback">
+                      Please fill in your username
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="d-block">
+                      <label for="password" class="control-label">Password</label>
+                      
+                    </div>
+                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                    <div class="invalid-feedback">
+                      please fill in your password
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <button type="submit" name="login" id="login" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                      Login
+                    </button>
+                  </div>
+                </form>
+              
+              </div>
+            </div>
+         
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- General JS Scripts -->
+  <script src="assets/js/app.min.js"></script>
+  <!-- JS Libraies -->
+  <!-- Page Specific JS File -->
+  <!-- Template JS File -->
+  <script src="assets/js/scripts.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/custom.js"></script>
+    <script>
+  
+  function makePayment() {
+    var i = document.getElementById('pamount').value;
+      
+    var b = i.replace(/\D+/g, '');
+      
+    var amt = parseInt(b); // * 100;
+      
+    FlutterwaveCheckout({
+      public_key: "FLWPUBK-742c4c46115b3cf28cd4e276e99f7e79-X",
+      tx_ref: ''+Math.floor((Math.random() * 1000000000) + 1),
+      amount: amt,
+      currency: "NGN",
+      country: "NG",
+      payment_options: "account, card, ussd",
+      customer: {
+        email: "",
+        phone_number: "",
+        name: "MECAPACYNTH WUKARI",
+      },
+      subaccounts: [
+        {
+          id: "RS_04620780AEC4881F6A990C1C5FDED06F",
+          transaction_split_ratio: 2,
+        },
+      ],
+      callback: function (data) {
+        //console.log(data);
+        location.href="pay447c.html?amount="+b;
+      },
+      onclose: function() {
+        // close modal
+      },
+      customizations: {
+        title: "MECAPACYNTH WUKARI",
+        description: "Payment",
+        logo: "",
+      },
+    });
+  }
+  
+</script>
+</body>
+
+
+<!-- auth-login.html  21 Nov 2019 03:49:32 GMT -->
+
+<!-- Mirrored from www.mecapacynthintlacademy.com.ng/login.php by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 06 Dec 2024 12:34:57 GMT -->
+</html>
